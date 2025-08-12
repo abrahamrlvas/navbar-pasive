@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'SuisseIntl';
+  src: url('./assets/fonts/SuisseIntl.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SuisseIntl';
+  src: url('./assets/fonts/SuisseIntl-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FontAwesome Light';
+  src: url('./assets/fonts/fa-light-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-family-sans: 'SuisseIntl', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-serif: 'SuisseIntl', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'SuisseIntl', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #f8fafc;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: inherit;
+}
+
+#root {
+  font-family: 'SuisseIntl', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.navigation-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.navigation-container .product-grid {
+  transition: transform 0.5s ease-in-out;
+}
+
+.product-grid {
+  transform: translateX(var(--transform-x, 0));
+}
+
+.article-grid {
+  transform: translateX(var(--transform-x, 0));
+  width: var(--grid-width, auto);
+}
+
+/* Click areas for navigation */
+.click-area-left:hover {
+  background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);
+}
+
+.click-area-right:hover {
+  background: linear-gradient(to left, rgba(0,0,0,0.1), transparent);
+}
+
+/* Clases personalizadas para cursores */
+.cursor-grabbing {
+  cursor: grabbing;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+/* Clases para artículos con ancho dinámico */
+.article-card {
+  width: var(--article-width);
+  max-width: var(--article-width);
+}
+
+/* Clase para barra de progreso */
+.h-full.bg-white\/60 {
+  width: var(--progress-width);
+}
+
+/* Animaciones personalizadas para las tarjetas de productos */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.product-card {
+  animation: slideInFromRight 0.6s ease-out;
+}
+
+.product-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.product-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.product-card:hover::before {
+  left: 100%;
+}
+
